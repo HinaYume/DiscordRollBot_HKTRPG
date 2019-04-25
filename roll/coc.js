@@ -287,13 +287,13 @@ function ccsu() {
 function coc6(chack, text) {
 	let temp = rollbase.Dice(100);
 	if (text == null) {
-		if (temp >= 96 && temp <= 100) rply.text = '1D100 ≦ ' + chack + '\n' + temp + ' → 大失敗！';
-		if (temp <= chack) rply.text = '1D100 ≦ ' + chack + '\n' + temp + ' → 成功';
-		else rply.text = '1D100 ≦' + chack + '\n' + temp + ' → 失敗';
+		if (temp >= 96 && temp <= 100) rply.text = '檢定/出目： ' + temp + '/'+ chack + ' → 大失敗！';
+		if (temp <= chack) rply.text = '檢定/出目： ' + temp + '/'+ chack + ' → 成功';
+		else rply.text = '檢定/出目： ' + temp + '/'+ chack + ' → 失敗';
 	} else {
-		if (temp >= 96 && temp <= 100) rply.text = '1D100 ≦ ' + chack + '：\n'+ text + '：' + temp + ' → 大失敗！';
-		if (temp <= chack) rply.text = '1D100 ≦ ' + chack + '：\n'+ text + '：' + temp + ' → 成功';
-		else rply.text = '1D100 ≦ ' + chack + '：\n'+ text + '：' + temp + ' → 失敗';
+		if (temp >= 96 && temp <= 100) rply.text = '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 大失敗！';
+		if (temp <= chack) rply.text = '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 成功';
+		else rply.text = '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 失敗';
 	}
 	return rply;
 }
@@ -316,23 +316,24 @@ function coc7(chack, text) {
 	return rply;
 }
 
-function coc7chack(temp, chack, text) {
+function coc7chack(chack, text) {
+	let temp = rollbase.Dice(100);
 	if (text == null) {
-		if (temp >= 1 && temp <= 5) return temp + ' → 大成功！';
-		if (temp >= 96 && temp <= 100) return temp + ' → 大失敗！';
-		//if (temp >= 96 && chack <= 49) return temp + ' → 大失敗！';
-		if (temp <= chack / 5) return temp + ' → 極限成功';
-		if (temp <= chack / 2) return temp + ' → 困難成功';
-		if (temp <= chack) return temp + ' → 通常成功';
+		if (temp >= 1 && temp <= 5) return '檢定/出目： ' + temp + '/'+ chack + ' → 大成功！';
+		if (temp >= 96 && temp <= 100) return '檢定/出目： ' + temp + '/'+ chack + ' → 大失敗！';
+		//if (temp >= 96 && chack <= 49) return '檢定/出目： ' + temp + '/'+ chack + ' → 大失敗！';
+		if (temp <= chack / 5) return '檢定/出目： ' + temp + '/'+ chack + ' → 極限成功';
+		if (temp <= chack / 2) return '檢定/出目： ' + temp + '/'+ chack + ' → 困難成功';
+		if (temp <= chack) return '檢定/出目： ' + temp + '/'+ chack + ' → 通常成功';
 		else return temp + ' → 失敗';
 	} else {
-		if (temp >= 1 && temp <= 5) return text + '：' + temp + ' → 大成功！';
-		if (temp >= 96 && temp <= 100) return text + '：' + temp + ' → 大失敗！';
-		//if (temp >= 96 && chack <= 49) return text + '：' + temp + ' → 大失敗！';
-		if (temp <= chack / 5) return text + '：' + temp + ' → 極限成功';
-		if (temp <= chack / 2) return text + '：' + temp + ' → 困難成功';
-		if (temp <= chack) return text + '：' + temp + ' → 通常成功';
-		else return text + '：' + temp + ' → 失敗';
+		if (temp >= 1 && temp <= 5) return '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 大成功！';
+		if (temp >= 96 && temp <= 100) return '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 大失敗！';
+		//if (temp >= 96 && chack <= 49) return '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 大失敗！';
+		if (temp <= chack / 5) return '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 極限成功';
+		if (temp <= chack / 2) return '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 困難成功';
+		if (temp <= chack) return '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 通常成功';
+		else return '「' + text + '」 檢定/出目： ' + temp + '/'+ chack + ' → 失敗';
 	}
 }
 
