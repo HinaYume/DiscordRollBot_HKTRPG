@@ -312,7 +312,7 @@ function coc7(chack, text) {
 	if (temp >= 1 && temp <= 5) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 大成功！';
 	if (temp >= 96 && temp <= 100) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 大失敗！';
 	//if (temp >= 96 && chack <= 49) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 大失敗！';
-	if (text != null) rply.text += '：' + text;
+	if (text != null) rply.text = text + '：' + rply.text;
 	return rply;
 }
 
