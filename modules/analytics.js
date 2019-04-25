@@ -34,7 +34,7 @@ function parseInput(inputStr) {
 		//ccb指令開始於此
 		if (trigger == 'ccb' && mainMsg[1] <= 99) return exports.coc.coc6(mainMsg[1], mainMsg[2]);
 		//DevelopmentPhase幕間成長指令開始於此
-		if (trigger == 'dp' && mainMsg[1] <= 1000) return exports.coc.DevelopmentPhase(mainMsg[1], mainMsg[2]);
+		if (trigger == 'skup' && mainMsg[1] <= 1000) return exports.coc.DevelopmentPhase(mainMsg[1], mainMsg[2]);
 
 
 		//cc指令開始於此
@@ -56,31 +56,31 @@ function parseInput(inputStr) {
 
 
 	//nc指令開始於此 來自Rainsting/TarotLineBot 
-	if (trigger.match(/^[1-4]n[c|a][+|-][1-99]$|^[1-4]n[c|a]$/) != null) return exports.nc.nechronica(trigger, mainMsg[1]);
+	//if (trigger.match(/^[1-4]n[c|a][+|-][1-99]$|^[1-4]n[c|a]$/) != null) return exports.nc.nechronica(trigger, mainMsg[1]);
 
 	//依戀
-	if (trigger.match(/(^nm$)/) != null) return exports.nc.nechronica_mirenn(mainMsg[1]);
+	//if (trigger.match(/(^nm$)/) != null) return exports.nc.nechronica_mirenn(mainMsg[1]);
 
 
 	//wod 指令開始於此
-	if (trigger.match(/^(\d+)(wd|wod)(\d|)((\+|-)(\d+)|)$/i) != null) return exports.wod.wod(trigger, mainMsg[1]);
+	//if (trigger.match(/^(\d+)(wd|wod)(\d|)((\+|-)(\d+)|)$/i) != null) return exports.wod.wod(trigger, mainMsg[1]);
 
 	//Dx3 指令開始於此
-	if (trigger.match(/^(\d+)(dx)(\d|)(((\+|-)(\d+)|)((\+|-)(\d+)|))$/i) != null) return exports.dx3.dx(trigger);
+	//if (trigger.match(/^(\d+)(dx)(\d|)(((\+|-)(\d+)|)((\+|-)(\d+)|))$/i) != null) return exports.dx3.dx(trigger);
 
 	//SW 指令開始於此
-	if (trigger.match(/^(kk)0*([0-9][0-9]?|100)(((\+|-)(\d+)|)((\+|-)(\d+)|))(|\@(\d+))(|\$(\d+))(|\$\+(\d+))(|gf)$/i) != null) return exports.sw.sw(trigger);
+	//if (trigger.match(/^(kk)0*([0-9][0-9]?|100)(((\+|-)(\d+)|)((\+|-)(\d+)|))(|\@(\d+))(|\$(\d+))(|\$\+(\d+))(|gf)$/i) != null) return exports.sw.sw(trigger);
 
 
 	//Fisher–Yates shuffle
 	//SortIt 指令開始於此
-	if (trigger.match(/排序/) != null && mainMsg.length >= 3) return exports.funny.SortIt(inputStr, mainMsg);
-	if (trigger.match(/^d66$/) != null) return exports.advroll.d66(mainMsg[1]);
-	if (trigger.match(/^d66s$/) != null) return exports.advroll.d66s(mainMsg[1]);
+	//if (trigger.match(/排序/) != null && mainMsg.length >= 3) return exports.funny.SortIt(inputStr, mainMsg);
+	//if (trigger.match(/^d66$/) != null) return exports.advroll.d66(mainMsg[1]);
+	//if (trigger.match(/^d66s$/) != null) return exports.advroll.d66s(mainMsg[1]);
 
 
 	//choice 指令開始於此
-	if (trigger.match(/choice|隨機|選項|選1/) != null && mainMsg.length >= 3) return exports.funny.choice(inputStr, mainMsg);
+	//if (trigger.match(/choice|隨機|選項|選1/) != null && mainMsg.length >= 3) return exports.funny.choice(inputStr, mainMsg);
 
 	//tarot 指令
 	if (trigger.match(/tarot|塔羅牌|塔羅/) != null) {
@@ -93,7 +93,7 @@ function parseInput(inputStr) {
 	if (trigger.match(/立flag|死亡flag/) != null) return exports.funny.BStyleFlagSCRIPTS();
 
 	//鴨霸獸指令開始於此
-	if (trigger.match(/鴨霸獸/) != null) return exports.funny.randomReply();
+	//if (trigger.match(/鴨霸獸/) != null) return exports.funny.randomReply();
 	if (trigger.match(/運勢/) != null) return exports.funny.randomLuck(mainMsg); //占卜運氣		
 
 
