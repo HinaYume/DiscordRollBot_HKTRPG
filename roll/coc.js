@@ -293,7 +293,8 @@ function coc6(chack, text) {
 		if (temp <= chack / 5) rply.text = '檢定/出目：' + chack + '/'+ temp + ' → 極限成功';
 		if (temp >= 1 && temp <= 5) rply.text = '檢定/出目：' + chack + '/'+ temp + ' → 大成功！';
 		if (temp >= 96 && temp <= 100) rply.text = '檢定/出目：' + chack + '/'+ temp + ' → 大失敗！';
-	} else {
+	} 
+	else if {
 		if (temp >= 1 && temp <= 5) return '「' + text + '」 檢定/出目：' + chack + '/'+ temp + ' → 大成功！';
 		if (temp >= 96 && temp <= 100) return '「' + text + '」 檢定/出目：' + chack + '/'+ temp + ' → 大失敗！';
 		//if (temp >= 96 && chack <= 49) return '「' + text + '」 檢定/出目：' + chack + '/'+ temp + ' → 大失敗！';
@@ -321,7 +322,7 @@ function coc7(chack, text) {
 		if (temp >= 96 && temp <= 100) rply.text = '檢定/出目：' + chack + '/'+ temp + ' → 大失敗！';
 		//if (temp >= 96 && chack <= 49) rply.text = '檢定/出目：' + chack + '/'+ temp + ' → 大失敗！';
 	}
-	if (text != null) {
+	else if (text != null) {
 		if (temp >= 1 && temp <= 5) return '「' + text + '」 檢定/出目：' + chack + '/'+ temp + ' → 大成功！';
 		if (temp >= 96 && temp <= 100) return '「' + text + '」 檢定/出目：' + chack + '/'+ temp + ' → 大失敗！';
 		//if (temp >= 96 && chack <= 49) return '「' + text + '」 檢定/出目：' + chack + '/'+ temp + ' → 大失敗！';
