@@ -287,13 +287,13 @@ function ccsu() {
 function coc6(chack, text) {
 	let temp = rollbase.Dice(100);
 	if (text == null) {
-		if (temp >= 96 && temp <= 100) rply.text = '1D100 ≦' + chack + '\n' + temp + ' → 大失敗！';
-		if (temp <= chack) rply.text = '1D100 ≦' + chack + '\n' + temp + ' → 成功';
+		if (temp >= 96 && temp <= 100) rply.text = '1D100 ≦ ' + chack + '\n' + temp + ' → 大失敗！';
+		if (temp <= chack) rply.text = '1D100 ≦ ' + chack + '\n' + temp + ' → 成功';
 		else rply.text = '1D100 ≦' + chack + '\n' + temp + ' → 失敗';
 	} else {
-		if (temp >= 96 && temp <= 100) rply.text = '1D100 ≦' + chack + '：\n'+ text + '：' + temp + ' → 大失敗！';
-		if (temp <= chack) rply.text = '1D100 ≦' + chack + '：\n'+ text + '：' + temp + ' → 成功';
-		else rply.text = '1D100 ≦' + chack + '：\n'+ text + '：' + temp + ' → 失敗';
+		if (temp >= 96 && temp <= 100) rply.text = '1D100 ≦ ' + chack + '：\n'+ text + '：' + temp + ' → 大失敗！';
+		if (temp <= chack) rply.text = '1D100 ≦ ' + chack + '：\n'+ text + '：' + temp + ' → 成功';
+		else rply.text = '1D100 ≦ ' + chack + '：\n'+ text + '：' + temp + ' → 失敗';
 	}
 	return rply;
 }
@@ -312,7 +312,7 @@ function coc7(chack, text) {
 	if (temp >= 1 && temp <= 5) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 大成功！';
 	if (temp >= 96 && temp <= 100) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 大失敗！';
 	//if (temp >= 96 && chack <= 49) rply.text = '1D100 ≦ ' + chack + "：\n" + temp + ' → 大失敗！';
-	if (text != null) rply.text = text + '：' + rply.text;
+	if (text != null) rply.text += '：' + text;
 	return rply;
 }
 
