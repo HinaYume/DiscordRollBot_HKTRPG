@@ -241,9 +241,9 @@ function DevelopmentPhase(chack, text) {
 	let skill = rollbase.Dice(100);
 	let improved = rollbase.Dice(10);
 	if (skill >= 96 || skill > chack) {
-		rply.text = "成長檢定「" + text + "」\n 檢定/出目：" + skill + " → 成功！\n「" + text + "」 → 增加" + improved + "點！";
+		rply.text = "成長檢定「" + text + "」 檢定/出目：" + skill + " → 成功！\n「" + text + "」 → 增加" + improved + "點！";
 	} else {
-		rply.text = "成長檢定「" + text + "」\n 檢定/出目：" + skill + " → 失敗！\n「" + text +"」 → 沒有變化！";
+		rply.text = "成長檢定「" + text + "」 檢定/出目：" + skill + " → 失敗！\n「" + text +"」 → 沒有變化！";
 	}
 	return rply;
 }
