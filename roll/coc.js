@@ -508,7 +508,7 @@ function build6char() {
 			AppDebuff = AppDebuffArr[i];
 			EDUinc = EDUincArr[i];
 		}
-		ReStr = ReStr + '==\n';
+		ReStr = ReStr + '==============================\n';
 		if (old < 20) ReStr = ReStr + '年齡調整：從STR、SIZ擇一減去' + Debuff + '點\n（請自行手動選擇計算）。\n將EDU減去5點。LUK可擲兩次取高。' ;
 		else
 			if (old >= 40)	ReStr = ReStr + '年齡調整：從STR、CON或DEX中「總共」減去' + Debuff + '點\n（請自行手動選擇計算）。\n將APP減去' + AppDebuff +'點。可做' + EDUinc + '次EDU的成長擲骰。' ;
@@ -520,12 +520,12 @@ function build6char() {
 	let ReStr = '六版核心創角：';
 	ReStr = ReStr + '\nＳＴＲ：' + rollbase.BuildDiceCal('3d6');
 	ReStr = ReStr + '\nＤＥＸ：' + rollbase.BuildDiceCal('3d6');
-	ReStr = ReStr + '\nＣＯＮ：' + rollbase.BuildDiceCal('3d6');
 	ReStr = ReStr + '\nＰＯＷ：' + rollbase.BuildDiceCal('3d6');
+	ReStr = ReStr + '\nＣＯＮ：' + rollbase.BuildDiceCal('3d6');
 	ReStr = ReStr + '\nＡＰＰ：' + rollbase.BuildDiceCal('3d6');
-	ReStr = ReStr + '\nＩＮＴ：' + rollbase.BuildDiceCal('(2d6+6)');
-	ReStr = ReStr + '\nＳＩＺ：' + rollbase.BuildDiceCal('(2d6+6)');
 	ReStr = ReStr + '\nＥＤＵ：' + rollbase.BuildDiceCal('(3d6+3)');
+	ReStr = ReStr + '\nＳＩＺ：' + rollbase.BuildDiceCal('(2d6+6)');
+	ReStr = ReStr + '\nＩＮＴ：' + rollbase.BuildDiceCal('(2d6+6)');
 	ReStr = ReStr + '\n年收入：' + rollbase.BuildDiceCal('(1d10)');
 	ReStr = ReStr + '\n調查員的最小起始年齡等於EDU+6，每比起始年齡年老十年，\n調查員增加一點EDU並且加20點職業技能點數。\n當超過40歲後，每老十年，\n從STR,CON,DEX,APP中選擇一個減少一點。';
 	rply.text = ReStr;
