@@ -427,31 +427,34 @@ function build7char(text01) {
 		AppDebuff = AppDebuffArr[i];
 		EDUinc = EDUincArr[i];
 	}
-	ReStr = ReStr + '==\n';
+	ReStr = ReStr + '==============================\n';
 	if (old < 20) ReStr = ReStr + '年齡調整：從STR、SIZ擇一減去' + Debuff + '點\n（請自行手動選擇計算）。\n將EDU減去5點。LUK可擲兩次取高。';
 	else
 		if (old >= 40) ReStr = ReStr + '年齡調整：從STR、CON或DEX中「總共」減去' + Debuff + '點\n（請自行手動選擇計算）。\n將APP減去' + AppDebuff + '點。可做' + EDUinc + '次EDU的成長擲骰。';
 		else ReStr = ReStr + '年齡調整：可做' + EDUinc + '次EDU的成長擲骰。';
-	ReStr = ReStr + '\n==';
+	ReStr = ReStr + '\n==============================';
 	if (old >= 40) ReStr = ReStr + '\n（以下箭號三項，自選共減' + Debuff + '點。）';
 	if (old < 20) ReStr = ReStr + '\n（以下箭號兩項，擇一減去' + Debuff + '點。）';
+	// 力量
 	ReStr = ReStr + '\nＳＴＲ：' + rollbase.BuildDiceCal('3d6*5');
 	if (old >= 40) ReStr = ReStr + ' ← 共減' + Debuff;
 	if (old < 20) ReStr = ReStr + ' ←擇一減' + Debuff;
-	ReStr = ReStr + '\nＣＯＮ：' + rollbase.BuildDiceCal('3d6*5');
-	if (old >= 40) ReStr = ReStr + ' ← 共減' + Debuff;
+	// 敏捷
 	ReStr = ReStr + '\nＤＥＸ：' + rollbase.BuildDiceCal('3d6*5');
 	if (old >= 40) ReStr = ReStr + ' ← 共減' + Debuff;
+	// 意志
+	ReStr = ReStr + '\nＰＯＷ：' + rollbase.BuildDiceCal('3d6*5');
+	// 體質
+	ReStr = ReStr + '\nＣＯＮ：' + rollbase.BuildDiceCal('3d6*5');
+	if (old >= 40) ReStr = ReStr + ' ← 共減' + Debuff;
+	// 外貌
 	if (old >= 40) ReStr = ReStr + '\nＡＰＰ：' + rollbase.BuildDiceCal('3d6*5-' + AppDebuff);
 	else ReStr = ReStr + '\nＡＰＰ：' + rollbase.BuildDiceCal('3d6*5');
-	ReStr = ReStr + '\nＰＯＷ：' + rollbase.BuildDiceCal('3d6*5');
-	ReStr = ReStr + '\nＳＩＺ：' + rollbase.BuildDiceCal('(2d6+6)*5');
-	if (old < 20) ReStr = ReStr + ' ←擇一減' + Debuff;
-	ReStr = ReStr + '\nＩＮＴ：' + rollbase.BuildDiceCal('(2d6+6)*5');
+	// 教育
 	if (old < 20) ReStr = ReStr + '\nＥＤＵ：' + rollbase.BuildDiceCal('3d6*5-5');
 	else {
 		let firstEDU = '(' + rollbase.BuildRollDice('2d6') + '+6)*5';
-		ReStr = ReStr + '\n==';
+		ReStr = ReStr + '\n==============================';
 		ReStr = ReStr + '\nＥＤＵ初始值：' + firstEDU + ' = ' + eval(firstEDU);
 
 		let tempEDU = eval(firstEDU);
@@ -470,11 +473,14 @@ function build7char(text01) {
 		ReStr = ReStr + '\n';
 		ReStr = ReStr + '\nＥＤＵ最終值：' + tempEDU;
 	}
-	ReStr = ReStr + '\n==';
-
+	ReStr = ReStr + '\n==============================';
+	// 體型
+	ReStr = ReStr + '\nＳＩＺ：' + rollbase.BuildDiceCal('(2d6+6)*5');
+	if (old < 20) ReStr = ReStr + ' ←擇一減' + Debuff;
+	ReStr = ReStr + '\nＩＮＴ：' + rollbase.BuildDiceCal('(2d6+6)*5');
+	// 幸運
 	ReStr = ReStr + '\nＬＵＫ：' + rollbase.BuildDiceCal('3d6*5');
 	if (old < 20) ReStr = ReStr + '\nＬＵＫ加骰：' + rollbase.BuildDiceCal('3D6*5');
-
 
 	rply.text = ReStr;
 	return rply;
