@@ -461,7 +461,7 @@ function build7char(text01) {
 
 		for (i = 1; i <= EDUinc; i++) {
 			let EDURoll = rollbase.Dice(100);
-			ReStr = ReStr + '\n第' + i + '次EDU成長 → ' + EDURoll;
+			ReStr = ReStr + '\n※第' + i + '次EDU成長 → ' + EDURoll;
 			if (EDURoll > tempEDU) {
 				let EDUplus = rollbase.Dice(10);
 				ReStr = ReStr + ' → 成長' + EDUplus + '點';
@@ -470,7 +470,7 @@ function build7char(text01) {
 				ReStr = ReStr + ' → 沒有成長';
 			}
 		}
-		ReStr = ReStr + '\n';
+		//ReStr = ReStr + '\n';
 		ReStr = ReStr + '\nＥＤＵ最終值：' + tempEDU;
 	}
 	ReStr = ReStr + '\n==============================';
@@ -481,7 +481,8 @@ function build7char(text01) {
 	// 幸運
 	ReStr = ReStr + '\nＬＵＫ：' + rollbase.BuildDiceCal('3d6*5');
 	if (old < 20) ReStr = ReStr + '\nＬＵＫ加骰：' + rollbase.BuildDiceCal('3D6*5');
-
+	ReStr = ReStr + '\n==============================';
+	
 	rply.text = ReStr;
 	return rply;
 }
