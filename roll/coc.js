@@ -461,7 +461,7 @@ function build7char(text01) {
 
 		for (i = 1; i <= EDUinc; i++) {
 			let EDURoll = rollbase.Dice(100);
-			ReStr = ReStr + '\n※第' + i + '次EDU成長 → ' + EDURoll;
+			ReStr = ReStr + '\n※ 第' + i + '次EDU成長 → ' + EDURoll;
 			if (EDURoll > tempEDU) {
 				let EDUplus = rollbase.Dice(10);
 				ReStr = ReStr + ' → 成長' + EDUplus + '點';
